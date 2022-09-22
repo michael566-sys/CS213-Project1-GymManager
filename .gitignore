@@ -30,3 +30,10 @@ bin/
 
 ### .idea/ ###
 .idea/
+.idea/workspace.xml
+
+### Project1-CS213-Fall2022.iml
+Project1-CS213-Fall2022.iml
+
+### src/testing/
+src/testing/
