@@ -28,10 +28,12 @@ public class Member {
         }
         return false;
     }
-    @Override
+    //@Override
     public int compareTo(Member member) {
         if (member.fname.equals(this.fname)) {
 
+        }
+        return 1;
     }
 
 
