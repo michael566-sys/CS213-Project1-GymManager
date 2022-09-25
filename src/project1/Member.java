@@ -1,14 +1,18 @@
 package project1;
 
-public class Member {
+public class Member implements Comparable<Member>{
     private String fname;
     private String lname;
     private Date dob;
     private Date expire;
     private Location location;
 
-    public Member() {
-        this.dob = new Date();
+    public Member(String fname, String lname, String dob, String expire, Location location) {
+        this.fname = fname;
+        this.lname = lname;
+        this.dob = new Date(dob);
+        this.expire = new Date(expire);
+        this.location = location;
     }
     @Override
     public String toString() {
@@ -21,7 +25,7 @@ public class Member {
             Member member = (Member) obj; //casting
             if (member.fname.toLowerCase().equals(this.fname.toLowerCase()) &
                     member.lname.toLowerCase().equals(this.lname.toLowerCase()) &
-                    member.dob.compareTo(this.dob) == 0
+                    member.dob.compareTo(this.dob) == Compare.EQUAL
             ) {
                 return true;
             }
@@ -29,11 +33,22 @@ public class Member {
         return false;
     }
     @Override
-    public int compareTo(Member member) {
-        if (member.fname.equals(this.fname)) {
-
+    public int compareTo(Member member) { // this class mainly serves for the PN command
+        /*
+        ordered by the members’ last names and then first names;
+        that is, if two members have the same last name, ordered by the first name.
+        */
+        if (member.lname.equals(this.lname)) {
+            return member.fname.compareTo(this.fname);
+        }
+        return member.lname.compareTo(this.lname);
     }
 
+//    public String getName() {
+//        // search what is requried for a close class??????
+//        // getter is also mutable?????
+//        this.ln
+//    }
 
     //testbed main
     public static void main(String[] args) {
