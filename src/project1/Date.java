@@ -14,7 +14,7 @@ public class Date implements Comparable<Date> {
         this.year = Integer.parseInt(results[2]);
     }//take “mm/dd/yyyy” and create a Date object
 
-    @Override
+    //@Override
     public int compareTo(Date date) {
         if ((this.year == date.year) && (this.month == date.month) && (this.day == date.day))
             return Compare.EQUAL; //current Date is the same as given date
