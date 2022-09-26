@@ -26,6 +26,17 @@ public class MemberDatabase {
         }
     }
     public boolean add(Member member) {
+        System.out.println("entered MemberDatabase class");
+        // find whether method exists first
+
+        // check valid date
+        /*
+        o Any date that is not a valid calendar date
+        o The date of birth is today or a future date
+        o A member who is less than 18 years old
+        o An invalid city name, that is, the gym location doesn’t exist
+        */
+
         for (int i = 0; i < this.size - 1;i++) { // Checks if member is already in database
             if (mlist[i].compareTo(member) != 0) {
                 return false; //if not return false
@@ -48,7 +59,7 @@ public class MemberDatabase {
     public boolean remove(Member member) {
         return false;
     }
-    public void print () { } //print the array contents as is
+    public void print() { } //print the array contents as is
     public void printByCounty() { } //sort by county and then zipcode
     public void printByExpirationDate() { } //sort by the expiration date
     public void printByName() { } //sort by last name and then first name
