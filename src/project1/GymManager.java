@@ -23,7 +23,7 @@ public class GymManager {
             System.out.println(commandLineString + "is a invalid command!");
             return;
         }
-        this.memberDatabase.add(new Member(results[1], results[2], results[3], results[4], Location.valueOf(results[5])));
+        this.memberDatabase.add(new Member(results[1], results[2], new Date(results[3]), new Date(results[4]), Location.valueOf(results[5])));
     }
 
     private void cancelMember(String[] results, int countParameters, String commandLineString) {
@@ -31,7 +31,7 @@ public class GymManager {
         if (countParameters != 4) {
             System.out.println(commandLineString + "is a invalid command!");
         }
-        this.memberDatabase.remove(new Member(results[1], results[2], results[3], "", Location.valueOf(results[4])));
+        this.memberDatabase.remove(new Member(results[1], results[2], new Date(results[3]), new Date(""), Location.valueOf(results[4])));
     }
 
     private void listMember(String[] results, int countParameters, String commandLineString) {

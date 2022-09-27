@@ -4,7 +4,7 @@ public class MemberDatabase {
     private Member [] mlist;
     private int size; // this is # of members in the database
     public MemberDatabase() {
-        this.size = 0; //Theres no members in database yet
+        this.size = 0; //There is no members in database yet
         mlist = new Member[4]; // Set the initial capacity to 4 members
     }
     private int find(Member member) {
@@ -25,6 +25,13 @@ public class MemberDatabase {
             mlist[x] = oldLst[x];
         }
     }
+
+    private boolean checkDateOfBirthIsValid() {
+        long millis=System.currentTimeMillis();
+
+
+    }
+
     public boolean add(Member member) {
         System.out.println("entered MemberDatabase class");
         // find whether method exists first
@@ -36,6 +43,10 @@ public class MemberDatabase {
         o A member who is less than 18 years old
         o An invalid city name, that is, the gym location doesn’t exist
         */
+        //check any date that is not a valid calendar date
+//        if (member.getDateOfBirth().isValid() && member.getExpirationDate().isValid())
+//            //check the date of birth is today or a future date
+//            if ()
 
         for (int i = 0; i < this.size - 1;i++) { // Checks if member is already in database
             if (mlist[i].compareTo(member) != 0) {
