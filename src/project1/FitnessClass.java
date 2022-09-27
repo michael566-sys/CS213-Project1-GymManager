@@ -13,6 +13,7 @@ public class FitnessClass {
     }
 
     public void checkInClass(){
+
     }
 
 }

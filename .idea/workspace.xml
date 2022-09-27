@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb8c2547-185b-4740-a8d9-39f312d5b240" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/testing/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/testing.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project1/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/Date.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project1/FitnessClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/FitnessClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project1/GymManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/GymManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project1/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project1/MemberDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/MemberDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project1/RunProject1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/RunProject1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,18 +44,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Bryan/Project1/CS213-Project1-GymManager",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.sourceCode"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Bryan/Project1/CS213-Project1-GymManager&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.RunProject1">
+}</component>
+  <component name="RunManager" selected="Application.Member">
+    <configuration name="Date" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project1.Date" />
+      <module name="Project1-CS213-Fall2022" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Member" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project1.Member" />
+      <module name="Project1-CS213-Fall2022" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../../Program Files/Java/jdk-13.0.2" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -73,6 +106,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Member" />
+        <item itemvalue="Application.Date" />
         <item itemvalue="Application.RunProject1" />
       </list>
     </recent_temporary>
