@@ -36,9 +36,9 @@ public class Date implements Comparable<Date> {
         if ((this.year == date.year) && (this.month == date.month) && (this.day == date.day))
             return Compare.EQUAL; //current Date is the same as given date
         if (this.year > date.year)
-            return Compare.MORETHAN; //current Date is earlier than given date
+            return Compare.MORETHAN; //current Date is younger than given date
         if (this.month > date.month)
-            return Compare.MORETHAN; //current Date is earlier than given date
+            return Compare.MORETHAN; //current Date is younger than given date
         if (this.day > date.day)
             return Compare.MORETHAN; //current Date is earlier than given date
         return Compare.LESSTHAN; //current Date is older than given date

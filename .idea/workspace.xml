@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb8c2547-185b-4740-a8d9-39f312d5b240" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/testing/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/testing.iml" afterDir="false" />
+    <list default="true" id="bb8c2547-185b-4740-a8d9-39f312d5b240" name="Changes" comment="Updated MemberDatabase class not finished yet - robert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project1/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/Date.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project1/FitnessClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/FitnessClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project1/GymManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/GymManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project1/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project1/MemberDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/MemberDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project1/ReturnValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/ReturnValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project1/RunProject1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/RunProject1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +49,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Member">
+  <component name="RunManager" selected="Application.Run">
     <configuration name="Date" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="project1.Date" />
       <module name="Project1-CS213-Fall2022" />
@@ -70,8 +64,10 @@
       </method>
     </configuration>
     <configuration name="Member" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="13" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="project1.Member" />
-      <module name="Project1-CS213-Fall2022" />
+      <module name="CS213-Project1-GymManager" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="project1.*" />

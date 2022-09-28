@@ -67,38 +67,38 @@ public class Member implements Comparable<Member>{
     //testbed main
     public static void main (String[] args) {
         //test cases for equals
-        System.out.println("**equals Test cases: ");
-        Member member = new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER);
-        boolean expectedEqualsOutput = true;
-        boolean actualEqualsOutput = member.equals(new Member("david", "marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER));
-        System.out.println("**Test case#1: two members have the same name: ");
-        testEqualsResult(member, expectedEqualsOutput, actualEqualsOutput);
-
-        member = new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER);
-        expectedEqualsOutput = false;
-        actualEqualsOutput = member.equals(new Member("James", "marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER));
-        System.out.println("**Test case#2: two members have the different names: ");
-        testEqualsResult(member, expectedEqualsOutput, actualEqualsOutput);
-
-        //test cases for compareTo
-        System.out.println("**compareTo Test cases: ");
-        member = new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER);
-        int expectedCompareToOutput = Compare.EQUAL;
-        int actualCompareToOutput = member.compareTo(new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER));
-        System.out.println("**Test case#1: two members have the same name: ");
-        testCompareToResult(member, expectedCompareToOutput, actualCompareToOutput);
-
-        member = new Member("James", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER);
-        expectedCompareToOutput = Compare.LESSTHAN;
-        actualCompareToOutput = member.compareTo(new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER));
-        System.out.println("**Test case#2: current member object's name comes before parameter member object's name: ");
-        testCompareToResult(member, expectedCompareToOutput, actualCompareToOutput);
-
-        member = new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER);
-        expectedCompareToOutput = Compare.MORETHAN;
-        actualCompareToOutput = member.compareTo(new Member("James", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER));
-        System.out.println("**Test case#3: current member object's name comes after parameter member object's name: ");
-        testCompareToResult(member, expectedCompareToOutput, actualCompareToOutput);
+//        System.out.println("**equals Test cases: ");
+//        Member member = new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER);
+//        boolean expectedEqualsOutput = true;
+//        boolean actualEqualsOutput = member.equals(new Member("david", "marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER));
+//        System.out.println("**Test case#1: two members have the same name: ");
+//        testEqualsResult(member, expectedEqualsOutput, actualEqualsOutput);
+//
+//        member = new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER);
+//        expectedEqualsOutput = false;
+//        actualEqualsOutput = member.equals(new Member("James", "marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER));
+//        System.out.println("**Test case#2: two members have the different names: ");
+//        testEqualsResult(member, expectedEqualsOutput, actualEqualsOutput);
+//
+//        //test cases for compareTo
+//        System.out.println("**compareTo Test cases: ");
+//        member = new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER);
+//        int expectedCompareToOutput = Compare.EQUAL;
+//        int actualCompareToOutput = member.compareTo(new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER));
+//        System.out.println("**Test case#1: two members have the same name: ");
+//        testCompareToResult(member, expectedCompareToOutput, actualCompareToOutput);
+//
+//        member = new Member("James", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER);
+//        expectedCompareToOutput = Compare.LESSTHAN;
+//        actualCompareToOutput = member.compareTo(new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER));
+//        System.out.println("**Test case#2: current member object's name comes before parameter member object's name: ");
+//        testCompareToResult(member, expectedCompareToOutput, actualCompareToOutput);
+//
+//        member = new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER);
+//        expectedCompareToOutput = Compare.MORETHAN;
+//        actualCompareToOutput = member.compareTo(new Member("James", "Marr", new Date("2/12/2016"), new Date("3/12/2016"), Location.BRIDGEWATER));
+//        System.out.println("**Test case#3: current member object's name comes after parameter member object's name: ");
+//        testCompareToResult(member, expectedCompareToOutput, actualCompareToOutput);
     }
     private static void testEqualsResult(Member member, boolean expectedOutput, boolean actualOutput) {
         System.out.println(member.toString());

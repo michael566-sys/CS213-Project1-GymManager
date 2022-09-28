@@ -12,7 +12,12 @@ public class FitnessClass {
         studentList = new Member[4];
     }
 
-    public void checkInClass(){
+    public void checkInClass(Member member){
+
+
+
+    }
+    public void printMembersCheckedIn() {
 
     }
 
