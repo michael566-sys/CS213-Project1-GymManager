@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb8c2547-185b-4740-a8d9-39f312d5b240" name="Changes" comment="Updated MemberDatabase class not finished yet - robert">
+    <list default="true" id="bb8c2547-185b-4740-a8d9-39f312d5b240" name="Changes" comment="almost done with MemberDatabase, havent startted on FitnessClass yet - robert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project1/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project1/FitnessClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/FitnessClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project1/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project1/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project1/MemberDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/MemberDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project1/ReturnValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/ReturnValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project1/RunProject1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/RunProject1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +113,14 @@
       <option name="presentableId" value="Default" />
       <updated>1663813924761</updated>
     </task>
+    <task id="LOCAL-00001" summary="almost done with MemberDatabase, havent startted on FitnessClass yet - robert">
+      <created>1664340163492</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664340163492</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,5 +133,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="almost done with MemberDatabase, havent startted on FitnessClass yet - robert" />
+    <option name="LAST_COMMIT_MESSAGE" value="almost done with MemberDatabase, havent startted on FitnessClass yet - robert" />
   </component>
 </project>

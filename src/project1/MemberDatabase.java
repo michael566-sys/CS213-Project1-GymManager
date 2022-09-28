@@ -106,16 +106,21 @@ public class MemberDatabase {
         }
     } //print the array contents as is
     public void printByCounty() {
-//        for (int i = 1; i < this.size - 1; i++) {
-//            Member currentMem = mlist[i];
-//            int j = i - 1;
-//            while (j >= 0 && mlist[j] > current) {
-//
-//            }
-//        }
+        for (int i = 1; i < this.size ; i++) { //insertion sort algo
+            Member currentMem = mlist[i];
+            int j = i - 1;
+            while (j >= 0 && mlist[j].getGymLocation().compare(currentMem.getGymLocation()) > 0) {
+                mlist[j + 1] = mlist[j];
+                j--;
+            }
+            mlist[j + 1] = currentMem;
+        }
+        for (Member member: mlist) {
+            System.out.println(member);
+        }
     } //sort by county and then zipcode
     public void printByExpirationDate() {
-        for (int i = 1; i < this.size - 1; i++) {
+        for (int i = 1; i < this.size; i++) {
             Member currentMem = mlist[i];
             int j = i - 1;
             while (j >= 0 && mlist[j].getExpirationDate().compareTo(currentMem.getExpirationDate()) == 1) {
@@ -124,8 +129,24 @@ public class MemberDatabase {
             }
             mlist[j + 1] = currentMem;
         }
+        for (Member member: mlist) {
+            System.out.println(member);
+        }
     } //sort by the expiration date
-    public void printByName() { } //sort by last name and then first name
+    public void printByName() {
+        for (int i = 1; i < this.size; i++) {
+            Member currentMem = mlist[i];
+            int j = i - 1;
+            while (j >= 0 && mlist[j].compareTo(currentMem) > 0) {
+                mlist[j + 1] = mlist[j];
+                j--;
+            }
+            mlist[j + 1] = currentMem;
+        }
+        for (Member member: mlist) {
+            System.out.println(member);
+        }
+    } //sort by last name and then first name
     public static void main (String[] args ) {
         System.out.println("testing...testing");
     }
