@@ -54,7 +54,7 @@ public class MemberDatabase {
             return false;
         }
    //    o A member who is less than 18 years old
-        Date atLeast18 = new Date("09/27/2004"); //Hardcoded but im going to change to use Calendar Class
+        Date atLeast18 = new Date("09/29/2004"); //Hardcoded but im going to change to use Calendar Class
         if (member.getDateOfBirth().compareTo(atLeast18) > 0) { //if DOB comes after the date that makes someone 18 yrs old
             return false;
         }
