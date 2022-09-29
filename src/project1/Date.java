@@ -1,13 +1,19 @@
 package project1;
 
-import javax.swing.plaf.basic.BasicCheckBoxUI;
-
+import java.util.Calendar;
 public class Date implements Comparable<Date> {
     private int year;
     private int month;
     private int day;
 
-    public Date() {} //create an object with today’s date (see Calendar class)
+    public Date() {
+        Calendar cal = Calendar.getInstance();
+        String currentDate = Calendar.getInstance().getTime().toString();
+        String[] results = currentDate.split("\\s");
+        this.year = Integer.parseInt(results[5]);
+        this.month = Integer.parseInt(this.getMonthNumberFromString(results[1]));
+        this.day = Integer.parseInt(results[2]);
+    } //create an object with today’s date (see Calendar class)
     public Date(String date) {
 //        if(!isValid(date))
         String results[] = date.split("\\/");
@@ -16,6 +22,34 @@ public class Date implements Comparable<Date> {
         this.year = Integer.parseInt(results[2]);
     }//take “mm/dd/yyyy” and create a Date object
 
+    private static String getMonthNumberFromString (String monthString) {
+        monthString = monthString.toLowerCase();
+        if (monthString.equals("jan"))
+            return "01";
+        if (monthString.equals("feb"))
+            return "02";
+        if (monthString.equals("mar"))
+            return "03";
+        if (monthString.equals("apr"))
+            return "04";
+        if (monthString.equals("may"))
+            return "05";
+        if (monthString.equals("jun"))
+            return "06";
+        if (monthString.equals("jul"))
+            return "07";
+        if (monthString.equals("aug"))
+            return "08";
+        if (monthString.equals("sep"))
+            return "09";
+        if (monthString.equals("oct"))
+            return "10";
+        if (monthString.equals("nov"))
+            return "11";
+        if (monthString.equals("dec"))
+            return "12";
+        return null;
+    }
     //check whether a year is a leap year
     private boolean checkLeapYear(int year) {
         if (year % Time.QUADRENNIAL == 0) {
@@ -34,14 +68,18 @@ public class Date implements Comparable<Date> {
     @Override
     public int compareTo(Date date) {
         if ((this.year == date.year) && (this.month == date.month) && (this.day == date.day))
-            return Compare.EQUAL; //current Date is the same as given date
+            return Compare.EQUAL; //current Date is the same as given parameter date
         if (this.year > date.year)
-            return Compare.MORETHAN; //current Date is earlier than given date
+            return Compare.MORETHAN; //current Date comes after given parameter date
+        if (this.year < date.year)
+            return Compare.LESSTHAN; //current Date comes before given parameter date
         if (this.month > date.month)
-            return Compare.MORETHAN; //current Date is earlier than given date
+            return Compare.MORETHAN; //current Date comes after given parameter date
+        if (this.month < date.month)
+            return Compare.LESSTHAN; //current Date comes before given parameter date
         if (this.day > date.day)
-            return Compare.MORETHAN; //current Date is earlier than given date
-        return Compare.LESSTHAN; //current Date is older than given date
+            return Compare.MORETHAN; //current Date comes after than given parameter date
+        return Compare.LESSTHAN; //current Date comes before given parameter date
     }
 
     public boolean isValid() {
@@ -111,22 +149,39 @@ public class Date implements Comparable<Date> {
         //test isValid
         System.out.println("**isValid Test cases: ");
         date = new Date("2/29/2011");
-        boolean expectedOutput = false;
-        boolean actualOutput = date.isValid();
+        boolean expectedIsValidOutput = false;
+        boolean actualIsValidOutput = date.isValid();
         System.out.println("**Test case#1: a date in a non-leap year has only 28 days in February: ");
-        testIsValidResult(date, expectedOutput, actualOutput);
+        testIsValidResult(date, expectedIsValidOutput, actualIsValidOutput);
 
         date = new Date("2/29/2016");
-        expectedOutput = true;
-        actualOutput = date.isValid();
+        expectedIsValidOutput = true;
+        actualIsValidOutput = date.isValid();
         System.out.println("**Test case#2: a date in a leap year has 29 days in Feburary: ");
-        testIsValidResult(date, expectedOutput, actualOutput);
+        testIsValidResult(date, expectedIsValidOutput, actualIsValidOutput);
 
         date = new Date("13/21/1999");
-        actualOutput = date.isValid();
-        expectedOutput = false;
+        actualIsValidOutput = date.isValid();
+        expectedIsValidOutput = false;
         System.out.println("**Test case#3: a date with an invalid month value: ");
-        testIsValidResult(date, expectedOutput, actualOutput);
+        testIsValidResult(date, expectedIsValidOutput, actualIsValidOutput);
+
+        //test Date() constructor to get the current date
+        date = new Date();
+        int expectedCurrentDayOutput = 29;
+        int expectedCurrentYearOutput = 2022;
+        int expectedCurrentMonthOutput = 9;
+        int actualCurrentDayOutput = date.day;
+        int actualCurrentYearOutput = date.year;
+        int actualCurrentMonthOutput = date.month;
+        System.out.println("**Test case#1: test current date, assume today is 9/29/2022");
+        System.out.println(date.toString());
+        if (expectedCurrentDayOutput == actualCurrentDayOutput && expectedCurrentYearOutput == actualCurrentYearOutput
+                && expectedCurrentMonthOutput == actualCurrentMonthOutput)
+            System.out.println(", PASS.\n");
+        else
+            System.out.println(", FAIL.\n");
+
     }
     private static void testIsValidResult(Date date, boolean expectedOutput, boolean actualOutput) {
         System.out.println(date.toString());
