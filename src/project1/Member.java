@@ -23,8 +23,8 @@ public class Member implements Comparable<Member>{
     public boolean equals(Object obj) {
         if (obj instanceof Member) {
             Member member = (Member) obj; //casting
-            if (member.fname.toLowerCase().equals(this.fname.toLowerCase()) &
-                    member.lname.toLowerCase().equals(this.lname.toLowerCase()) &
+            if (member.fname.toLowerCase().equals(this.fname.toLowerCase()) &&
+                    member.lname.toLowerCase().equals(this.lname.toLowerCase()) &&
                     member.dob.compareTo(this.dob) == Compare.EQUAL
             ) {
                 return true;

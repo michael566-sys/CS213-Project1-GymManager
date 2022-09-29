@@ -12,7 +12,7 @@ public class MemberDatabase {
         mlist = new Member[4]; // Set the initial capacity to 4 members
     }
     private int find(Member member) {
-        for (int i = 0; i < this.size - 1;i++) { // Checks if member is in database
+        for (int i = 0; i < this.size; i++) { // Checks if member is in database
             if (mlist[i].compareTo(member) == 0) {
                 return i; //returns index is member is in database
             }
@@ -47,15 +47,18 @@ public class MemberDatabase {
 
 //        o Any date that is not a valid calendar date
         if (member.getDateOfBirth().isValid() == false || member.getExpirationDate().isValid() == false) {
+            System.out.println("Not valid date");
             return false;
         }
 //        o The date of birth is today or a future date
-        if (member.getDateOfBirth().compareTo(todayDate) >= 0) { //if dob is older than or equal to current date
+        if (member.getDateOfBirth().compareTo(todayDate) < 0) { //if dob is older than or equal to current date
+            System.out.println("DOB is today or future date");
             return false;
         }
    //    o A member who is less than 18 years old
-        Date atLeast18 = new Date("09/29/2004"); //Hardcoded but im going to change to use Calendar Class
-        if (member.getDateOfBirth().compareTo(atLeast18) > 0) { //if DOB comes after the date that makes someone 18 yrs old
+        Date atLeastEightTeen = new Date("09/29/2004"); //Hardcoded but im going to change to use Calendar Class
+        if (member.getDateOfBirth().compareTo(atLeastEightTeen) > 0) { //if DOB comes after the date that makes someone 18 yrs old
+            System.out.println(member + "not 18.");
             return false;
         }
 
@@ -68,11 +71,13 @@ public class MemberDatabase {
             }
         }
         if (!found) {
+            System.out.println("Gym location doesnt exist");
             return false;
         }
         //check any date that is not a valid calendar date
         for (int i = 0; i < this.size - 1;i++) { // Checks if member is already in database
-            if (mlist[i].compareTo(member) != 0) {
+            if (mlist[i].equals(member)) {
+                System.out.println("Already in database");
                 return false; //if not return false
             }
         }
@@ -148,6 +153,10 @@ public class MemberDatabase {
         }
     } //sort by last name and then first name
     public static void main (String[] args ) {
-        System.out.println("testing...testing");
+        MemberDatabase memberDatabase = new MemberDatabase();
+        Member member = new Member("David", "Marr", new Date("2/12/2004"), new Date("3/12/2016"), Location.BRIDGEWATER);
+       System.out.println(memberDatabase.add(member));
+        System.out.println(memberDatabase.add(member));
+        memberDatabase.print();
     }
 }

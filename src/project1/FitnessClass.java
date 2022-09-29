@@ -16,13 +16,20 @@ public class FitnessClass {
     }
 
     public boolean checkInClass(Member member){
+        Date todaysDate = new Date();
+        if (todaysDate.compareTo(member.getExpirationDate()) > 0) { //if expiration date comes after todays date
+            System.out.println("expiration date is outdated");
+            return false;
+        }
         if (find(member) == -1) { //if member is not checked in
-            if ((this.size + 1) > getCapacity() ) { //checks if database has enough room for another member
+            if ((this.size + 1) > getCapacity() ) {
+                System.out.println("Array too big use grow");
                 grow();  //increases the database if it doesnt.
                 studentList[size] = member;
                 size++;
                 return true;
             } else {
+                System.out.println("Array is fine added");
                 studentList[size] = member;
                 size++;
                 return true;
@@ -30,6 +37,7 @@ public class FitnessClass {
 
 
         }
+        System.out.println(member + " is already checked in");
         return false;
     }
     private void grow() { //Method to grow capacity by 4 into new array copying old array elements
@@ -59,9 +67,10 @@ public class FitnessClass {
         }
     }
     public int find(Member member) {
-        for (int i = 0; i < this.size - 1;i++) { // Checks if member is in database
-            if (studentList[i].compareTo(member) == 0) {
-                return i; //returns index is member is in database
+ //       System.out.println("Seraching.");
+        for (int i = 0; i < this.size; i++) { // Checks if member is in database
+            if (member.equals(this.studentList[i])) {
+                return i; //returns index is member is in array
             }
         }
         return -1; //returns "NOT FOUND" if not
@@ -79,5 +88,18 @@ public class FitnessClass {
     }
     public Member[] getStudentList() {
         return this.studentList;
+    }
+    public static void main(String[] args) {
+        FitnessClass fitnessClassSpinning = new FitnessClass("SPINNING", Time.SPINNINGCLASSTIME, "Denise");
+        FitnessClass fitnessClassCardio = new FitnessClass("CARDIO", Time.CARDIOCLASSTIME, "Kim");
+        Member David = new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
+      //  Member David1 = new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
+
+        System.out.println(fitnessClassSpinning.checkInClass(David));
+        System.out.println(fitnessClassSpinning.find(David));
+        System.out.println(fitnessClassSpinning.checkInClass(David));
+
+
+        fitnessClassSpinning.printMembersCheckedIn();
     }
 }
