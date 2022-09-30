@@ -18,18 +18,28 @@ public class FitnessClass {
     public boolean checkInClass(Member member){
         Date todaysDate = new Date();
         if (todaysDate.compareTo(member.getExpirationDate()) > 0) { //if expiration date comes after todays date
-            System.out.println("expiration date is outdated");
+            System.out.println("Membership has expired.");
+            return false;
+        }
+        //checks if member is checked in
+        if (find(member) != -1) {
+            System.out.println("Member is already checked in");
+            return false;
+        }
+        //checks if dob is invalid
+        if (member.getDateOfBirth().isValid() == false) {
+            System.out.println("The date of birth is invalid ");
             return false;
         }
         if (find(member) == -1) { //if member is not checked in
             if ((this.size + 1) > getCapacity() ) {
-                System.out.println("Array too big use grow");
+                System.out.println("Member added (Array too big used grow)");
                 grow();  //increases the database if it doesnt.
                 studentList[size] = member;
                 size++;
                 return true;
             } else {
-                System.out.println("Array is fine added");
+                System.out.println("Member added (Array is fine)");
                 studentList[size] = member;
                 size++;
                 return true;
@@ -49,17 +59,12 @@ public class FitnessClass {
             studentList[x] = oldLst[x];
         }
     }
-    public boolean conflictingTimes(Member[] sLst) { // if (class.getStartTime == class2.getStartTime && class1.getStudentlist.conflictingTimes(class2.getSLst))
-        boolean conflictingTimes = false;
-        for (Member m: studentList){
-            for (Member pM: sLst ) {
-                if (m.equals(pM)) {
-                  conflictingTimes = true;
-                  break;
-                }
-            }
+    public boolean checkTimeConflict(Member member) { // if (class.getStartTime == class2.getStartTime && fitnessClass.checkTimeConflict(member)
+        if (find(member) != -1) {
+            return true;
         }
-        return conflictingTimes;
+        return false;
+        // use this to check if a member is already in the class
     }
     public void printMembersCheckedIn() {
         for (Member m:this.studentList) {
@@ -93,11 +98,23 @@ public class FitnessClass {
         FitnessClass fitnessClassSpinning = new FitnessClass("SPINNING", Time.SPINNINGCLASSTIME, "Denise");
         FitnessClass fitnessClassCardio = new FitnessClass("CARDIO", Time.CARDIOCLASSTIME, "Kim");
         Member David = new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
-      //  Member David1 = new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
+        Member David1 = new Member("Maria", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
+        Member David2 = new Member("Juan", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
+        Member David3 = new Member("Jose", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
+        Member David4 = new Member("Rodrigo", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
+        Member David5 = new Member("Ramon", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
+        Member David6 = new Member("Damian", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
+
 
         System.out.println(fitnessClassSpinning.checkInClass(David));
-        System.out.println(fitnessClassSpinning.find(David));
-        System.out.println(fitnessClassSpinning.checkInClass(David));
+      //  System.out.println(fitnessClassSpinning.find(David));
+        System.out.println(fitnessClassSpinning.checkInClass(David1));
+        System.out.println(fitnessClassSpinning.checkInClass(David2));
+        System.out.println(fitnessClassSpinning.checkInClass(David3));
+        System.out.println(fitnessClassSpinning.checkInClass(David4));
+        System.out.println(fitnessClassSpinning.checkInClass(David5));
+        System.out.println(fitnessClassSpinning.checkInClass(David6));
+     //   System.out.println(fitnessClassSpinning.)
 
 
         fitnessClassSpinning.printMembersCheckedIn();
