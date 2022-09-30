@@ -1,5 +1,8 @@
 package project1;
 
+import java.lang.Integer;
+
+
 public enum Location implements Comparable<Location> {
     SOMERVILLE ("08876", "SOMERSET"),
     BRIDGEWATER ("08807", "SOMERSET"),
@@ -21,18 +24,18 @@ public enum Location implements Comparable<Location> {
 
     public int compare(Location location) {
         if (location.getCounty().toLowerCase().equals(getCounty().toLowerCase())) { // if counties are the same check zipcodes
-            if (location.getZipCode().toLowerCase().compareTo(getZipCode().toLowerCase()) > 0)
+            if (Integer.parseInt(location.getZipCode()) > Integer.parseInt(getZipCode())) // checks zipcodes
                 return Compare.MORETHAN;
-            if (location.getCounty().toLowerCase().compareTo(getCounty().toLowerCase()) < 0)
+            if (Integer.parseInt(location.getZipCode()) < Integer.parseInt(getZipCode()))
                 return Compare.LESSTHAN;
             return Compare.EQUAL;
-        }
+        } //if counties are not the same then checks counties
         if (location.getCounty().toLowerCase().compareTo(getCounty().toLowerCase()) > 0) {
             return Compare.MORETHAN;
         }
         if (location.getCounty().toLowerCase().compareToIgnoreCase(getCounty()) < 0) {
             return Compare.LESSTHAN;
         }
-        return 0;
+        return Compare.EQUAL;
     }
 }
