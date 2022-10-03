@@ -1,10 +1,8 @@
 package project1;
 
 public enum Time {
-    PILATESCLASSTIME ("9:30"),
-    SPINNINGCLASSTIME ("14:00"),
-    CARDIOCLASSTIME ("14:00");
-
+    MORNING ("9", "30"),
+    AFTERNOON ("14", "00");
     public static final int QUADRENNIAL = 4;
     public static final int CENTENNIAL = 100;
     public static final int QUATERCENTENNIAL = 400;
@@ -24,9 +22,14 @@ public enum Time {
     public static final int THIRTYONEDAYSMONTH = 31;
     public static final int DAYSINLEAPFEBRUARY = 29;
     public static final int DAYSINNONLEAPFEBRUARY = 28;
-
-    private final String startTime;
-    Time(String startTime){
-        this.startTime = startTime;
+    @Override
+    public String toString() {
+        return this.hour + ":" + this.minute;
+    }
+    private final String hour;
+    private final String minute;
+    Time(String hour, String minute){
+        this.hour = hour;
+        this.minute = minute;
     }
 }

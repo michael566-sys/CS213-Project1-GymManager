@@ -19,8 +19,8 @@ public class Member implements Comparable<Member> {
     public String toString() {
         // April March, DOB: 3/31/1990, Membership expires 6/30/2023, Location:
         // PISCATAWAY, 08854, MIDDLESEX
-        return this.fname + ", " + this.lname + ": " + this.dob + ", " + "Membership expires " + expire + ", "
-                + "Location: " + this.location + " " + this.location.getZipCode() +  " " + this.location.getCounty();
+        return this.fname + " " + this.lname + ", DOB: " + this.dob.toString() + ", Membership expires " + this.expire.toString() + ", "
+                + "Location: " + this.location.toString();
     };
 
     @Override
@@ -54,10 +54,14 @@ public class Member implements Comparable<Member> {
         return Compare.LESSTHAN;
     }
 
-    public String getName() {
+    public String getFirstName() {
         // search what is requried for a close class??????
         // getter is also mutable?????
-        return this.fname + " " + this.lname;
+        return this.fname;
+    }
+
+    public String getLastName() {
+        return this.lname;
     }
 
     public Date getDateOfBirth() {
