@@ -1,9 +1,6 @@
 package project1;
 
-import java.lang.Integer;
-
-
-public enum Location implements Comparable<Location> {
+public enum Location {
     SOMERVILLE ("08876", "SOMERSET"),
     BRIDGEWATER ("08807", "SOMERSET"),
     EDISON ("08837", "MIDDLESEX"),
@@ -20,6 +17,10 @@ public enum Location implements Comparable<Location> {
     }
     public String getCounty() {
         return county;
+    }
+    @Override
+    public String toString() {
+        return this.name() + ", " + this.zipCode + ", " + this.county;
     }
 
     public int compare(Location location) {

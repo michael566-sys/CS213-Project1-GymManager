@@ -108,12 +108,20 @@ public class Date implements Comparable<Date> {
         }
         return false;
     } // check if a date is a valid calendar date
-
+    public int getMonth(){
+        return this.month;
+    }
+    public int getYear(){
+        return this.year;
+    }
+    public int getDay(){
+        return this.day;
+    }
     @Override
     public String toString() {
         // April March, DOB: 3/31/1990, Membership expires 6/30/2023, Location:
         // PISCATAWAY, 08854, MIDDLESEX
-        return this.year + ", " + this.month + ", " + this.day;
+        return this.month + "/" + this.day + "/" + this.year;
     };
 
     // testbed main

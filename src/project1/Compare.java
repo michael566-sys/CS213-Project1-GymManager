@@ -5,4 +5,5 @@ public enum Compare {
     public static final int EQUAL = 0;
     public static final int MORETHAN = 1;
     public static final int LESSTHAN = -1;
+    public static final int EIGHTEENYEARS = 18;
 }

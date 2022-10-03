@@ -15,37 +15,42 @@ public class FitnessClass {
         this.instructor = instructor;
     }
 
+
+    private int find(Member member) {
+        for (int i = 0; i < this.size; i++) { // Checks if member is in database
+            if (member.equals(this.studentList[i])) {
+                return i; //returns index is member is in array
+            }
+        }
+        return -1; //returns "NOT FOUND" if not
+    }
+
     public boolean checkInClass(Member member){
-        Date todaysDate = new Date();
-        if (todaysDate.compareTo(member.getExpirationDate()) > 0) { //if expiration date comes after todays date
-            System.out.println("Membership has expired.");
-            return false;
-        }
+//        Date todaysDate = new Date();
+//        if (todaysDate.compareTo(member.getExpirationDate()) > 0) { //if expiration date comes after todays date
+//            System.out.println("Membership has expired.");
+//            return false;
+//        }
         //checks if member is checked in
-        if (find(member) != -1) {
-            System.out.println("Member is already checked in");
+        if (this.find(member) != -1) {
             return false;
         }
-        //checks if dob is invalid
-        if (member.getDateOfBirth().isValid() == false) {
-            System.out.println("The date of birth is invalid ");
-            return false;
-        }
+//        //checks if dob is invalid
+//        if (member.getDateOfBirth().isValid() == false) {
+//            System.out.println("The date of birth is invalid ");
+//            return false;
+//        }
         if (find(member) == -1) { //if member is not checked in
             if ((this.size + 1) > getCapacity() ) {
-                System.out.println("Member added (Array too big used grow)");
                 grow();  //increases the database if it doesnt.
                 studentList[size] = member;
                 size++;
                 return true;
             } else {
-                System.out.println("Member added (Array is fine)");
                 studentList[size] = member;
                 size++;
                 return true;
             }
-
-
         }
         System.out.println(member + " is already checked in");
         return false;
@@ -59,7 +64,7 @@ public class FitnessClass {
             studentList[x] = oldLst[x];
         }
     }
-    public boolean checkTimeConflict(Member member) { // if (class.getStartTime == class2.getStartTime && fitnessClass.checkTimeConflict(member)
+    public boolean checkTimeConflict(Member member) {
         if (find(member) != -1) {
             return true;
         }
@@ -71,14 +76,26 @@ public class FitnessClass {
             System.out.println(m);
         }
     }
-    public int find(Member member) {
- //       System.out.println("Seraching.");
-        for (int i = 0; i < this.size; i++) { // Checks if member is in database
-            if (member.equals(this.studentList[i])) {
-                return i; //returns index is member is in array
+    public boolean checkEmptyStudentList() {
+        if (this.size == 0)
+            return true;
+        return false;
+    }
+
+    public boolean dropClass(Member member) {
+        int indexToRemove = find(member);
+        if (indexToRemove != -1) {
+            this.studentList[indexToRemove] = this.studentList[this.size - 1];
+            int tempIndex = indexToRemove;
+            while (tempIndex + 1 <= this.size - 1) {
+                this.studentList[tempIndex] = this.studentList[tempIndex + 1];
+                tempIndex++;
             }
+            this.studentList[tempIndex] = null;
+            this.size--;
+            return true;
         }
-        return -1; //returns "NOT FOUND" if not
+        return false;
     }
 
     public Time getStartTime() {
@@ -87,16 +104,19 @@ public class FitnessClass {
     private int getCapacity() {
         return studentList.length;
     }
-
     public String getClassName() {
         return this.className;
     }
     public Member[] getStudentList() {
         return this.studentList;
     }
+    @Override
+    public String toString() {
+        return this.className + " - " + this.instructor + " " + this.startTime.toString();
+    }
     public static void main(String[] args) {
-        FitnessClass fitnessClassSpinning = new FitnessClass("SPINNING", Time.SPINNINGCLASSTIME, "Denise");
-        FitnessClass fitnessClassCardio = new FitnessClass("CARDIO", Time.CARDIOCLASSTIME, "Kim");
+        FitnessClass fitnessClassSpinning = new FitnessClass("SPINNING", Time.AFTERNOON, "Denise");
+        FitnessClass fitnessClassCardio = new FitnessClass("CARDIO", Time.AFTERNOON, "Kim");
         Member David = new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
         Member David1 = new Member("Maria", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
         Member David2 = new Member("Juan", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
