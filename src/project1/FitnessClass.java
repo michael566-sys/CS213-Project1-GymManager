@@ -1,48 +1,70 @@
 package project1;
-
+/**
+ MemberDatabast class to store members inside a member list.
+ Performs add and remove member, display members with or without order.
+ @author Songyuan Zhang, Robert Jimenez
+ */
 public class FitnessClass {
     private String className;
     private Time startTime;
     private String instructor;
-    private Member[] studentList;
+    private Member [] studentList;
     private  int size;
-
+    /**
+     Initialize a FitnessClass object.
+     Initialize one FitnessClass object with class name, start time, and instructor.
+     @param className the name of the fitness class
+     @param startTime the start time of the fitness class, it can be either morning or afternoon
+     @param  instructor the name of the instructor of the fitness class
+     */
     public FitnessClass(String className, Time startTime, String instructor) {
         this.className = className;
         this.startTime = startTime;
-        this.size = 0;
-        studentList = new Member[4];
+        this.size = Compare.EMPTY_SIZE;
+        this.studentList = new Member[Compare.ARRAYGROWSIZE];
         this.instructor = instructor;
     }
-
-
+    /**
+     Check whether the member is in the student list.
+     Traverse the student list to find the student.
+     @param member the member that needs to be found.
+     @return index if the member is found, Compare.NOT_FOUND otherwise.
+     */
     private int find(Member member) {
-        for (int i = 0; i < this.size; i++) { // Checks if member is in database
-            if (member.equals(this.studentList[i])) {
-                return i; //returns index is member is in array
+        for (int index = 0; index < this.size; index++) { // Checks if member is in student list
+            if (member.equals(this.studentList[index])) {
+                return index; //returns index is member is in array
             }
         }
-        return -1; //returns "NOT FOUND" if not
+        return Compare.NOT_FOUND; //returns "NOT FOUND" if not
     }
-
+    /**
+     Increase the capacity of the student list if it has reached its capacity.
+     Copying old array elements into the array with the new capacity.
+     */
+    private void grow() { //Method to grow capacity by 4 into new array copying old array elements
+        Member[]  oldLst = studentList; //Temp array to hold old array
+        int newCapacity = studentList.length + Compare.ARRAYGROWSIZE;
+        studentList = new Member[newCapacity]; // new array with 4 more capacity
+        for (int x = 0; x < oldLst.length; x++) { //copy old array elements into new array
+            studentList[x] = oldLst[x];
+        }
+    }
+    /**
+     Allow member to check into a class if the student has not checked in.
+     Find whether the student is in the class student list.
+     Add the student into the list by appending to the end of the list.
+     @param member the member that needs to be checked in.
+     @return true if the member is check in successfully, false if the member is already checked in.
+     */
     public boolean checkInClass(Member member){
-//        Date todaysDate = new Date();
-//        if (todaysDate.compareTo(member.getExpirationDate()) > 0) { //if expiration date comes after todays date
-//            System.out.println("Membership has expired.");
-//            return false;
-//        }
         //checks if member is checked in
-        if (this.find(member) != -1) {
+        if (this.find(member) != Compare.NOT_FOUND) {
             return false;
         }
-//        //checks if dob is invalid
-//        if (member.getDateOfBirth().isValid() == false) {
-//            System.out.println("The date of birth is invalid ");
-//            return false;
-//        }
-        if (find(member) == -1) { //if member is not checked in
-            if ((this.size + 1) > getCapacity() ) {
-                grow();  //increases the database if it doesnt.
+        if (find(member) == Compare.NOT_FOUND) { //if member is not checked in
+            if ((this.size + 1) > studentList.length ) {
+                grow();  //increases the database if it doesn't.
                 studentList[size] = member;
                 size++;
                 return true;
@@ -52,39 +74,41 @@ public class FitnessClass {
                 return true;
             }
         }
-        System.out.println(member + " is already checked in");
         return false;
     }
-    private void grow() { //Method to grow capacity by 4 into new array copying old array elements
-        Member[]  oldLst = studentList; //Temp array to hold old array
-        int newCapacity = getCapacity() + 4;
-        studentList = new Member[newCapacity]; // new array with 4 more capacity
-
-        for (int x = 0; x < oldLst.length; x++) { //copy old array elements into new array
-            studentList[x] = oldLst[x];
-        }
-    }
-    public boolean checkTimeConflict(Member member) {
+    /**
+     Check whether student has already checked into this class.
+     Called by GymManager class to check time conflict in the class schedule.
+     @param member the member who wants to check in another class that might have time conflict with this class.
+     @return true if the member has already checked in, false if the member has not checked in.
+     */
+    public boolean checkExistence(Member member) {
         if (find(member) != -1) {
             return true;
         }
         return false;
-        // use this to check if a member is already in the class
     }
-    public void printMembersCheckedIn() {
-        for (Member m:this.studentList) {
-            System.out.println(m);
-        }
-    }
+    /**
+     Check whether the student list is empty.
+     Called by GymManager class to help listFitnessClassSchedule method to see
+     whether the class has student or not.
+     @return true if the class has no student, false if otherwise.
+     */
     public boolean checkEmptyStudentList() {
         if (this.size == 0)
             return true;
         return false;
     }
-
+    /**
+     Drop a class for a member.
+     If member exists in the class, drop the member from the student list.
+     Move every subsequence members on position to the left of the array.
+     @param member who wants to drop the class.
+     @return true if the class has been dropped, false if student is not in the class.
+     */
     public boolean dropClass(Member member) {
         int indexToRemove = find(member);
-        if (indexToRemove != -1) {
+        if (indexToRemove != Compare.NOT_FOUND) {
             this.studentList[indexToRemove] = this.studentList[this.size - 1];
             int tempIndex = indexToRemove;
             while (tempIndex + 1 <= this.size - 1) {
@@ -97,46 +121,20 @@ public class FitnessClass {
         }
         return false;
     }
-
-    public Time getStartTime() {
-        return this.startTime;
-    }
-    private int getCapacity() {
-        return studentList.length;
-    }
-    public String getClassName() {
-        return this.className;
-    }
-    public Member[] getStudentList() {
+    /**
+     Get the list of students checked into the class.
+     Called by GymManager class to print list of students in a class.
+     @return studentList containing list of students checked into the class.
+     */
+    public Member [] getStudentList() {
         return this.studentList;
     }
+    /**
+     Override the toString method and print class name, instructor, and start time of the class.
+     @return string containing class name, instructor, and start time of the class.
+     */
     @Override
     public String toString() {
         return this.className + " - " + this.instructor + " " + this.startTime.toString();
-    }
-    public static void main(String[] args) {
-        FitnessClass fitnessClassSpinning = new FitnessClass("SPINNING", Time.AFTERNOON, "Denise");
-        FitnessClass fitnessClassCardio = new FitnessClass("CARDIO", Time.AFTERNOON, "Kim");
-        Member David = new Member("David", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
-        Member David1 = new Member("Maria", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
-        Member David2 = new Member("Juan", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
-        Member David3 = new Member("Jose", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
-        Member David4 = new Member("Rodrigo", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
-        Member David5 = new Member("Ramon", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
-        Member David6 = new Member("Damian", "Marr", new Date("2/12/2016"), new Date("3/12/2023"), Location.BRIDGEWATER);
-
-
-        System.out.println(fitnessClassSpinning.checkInClass(David));
-      //  System.out.println(fitnessClassSpinning.find(David));
-        System.out.println(fitnessClassSpinning.checkInClass(David1));
-        System.out.println(fitnessClassSpinning.checkInClass(David2));
-        System.out.println(fitnessClassSpinning.checkInClass(David3));
-        System.out.println(fitnessClassSpinning.checkInClass(David4));
-        System.out.println(fitnessClassSpinning.checkInClass(David5));
-        System.out.println(fitnessClassSpinning.checkInClass(David6));
-     //   System.out.println(fitnessClassSpinning.)
-
-
-        fitnessClassSpinning.printMembersCheckedIn();
     }
 }
