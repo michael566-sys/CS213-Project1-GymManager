@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb8c2547-185b-4740-a8d9-39f312d5b240" name="Changes" comment=" 7:29 pm - robert">
+    <list default="true" id="bb8c2547-185b-4740-a8d9-39f312d5b240" name="Changes" comment=" - robert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project1/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project1/FitnessClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/FitnessClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project1/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project1/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project1/MemberDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/MemberDatabase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664494106289</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary=" - robert">
+      <created>1664566624284</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664566624284</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,6 +171,7 @@
     <MESSAGE value="Done with MemberDatabase havent tested it so no way of telling if its right , starting on FitnessClass now - robert" />
     <MESSAGE value="fitness class should be done now- robert" />
     <MESSAGE value=" 7:29 pm - robert" />
-    <option name="LAST_COMMIT_MESSAGE" value=" 7:29 pm - robert" />
+    <MESSAGE value=" - robert" />
+    <option name="LAST_COMMIT_MESSAGE" value=" - robert" />
   </component>
 </project>
